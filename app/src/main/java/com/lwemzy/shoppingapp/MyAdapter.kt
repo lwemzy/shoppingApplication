@@ -4,11 +4,9 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-//import kotlinx.android.synthetic.main.shoping_item.view.*
 
 
 class MyAdapter(var blist: ArrayList<Product>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
@@ -20,15 +18,12 @@ class MyAdapter(var blist: ArrayList<Product>) : RecyclerView.Adapter<MyAdapter.
 
     override fun onBindViewHolder(holder: MyAdapter.MyViewHolder, position: Int) {
         var imgStr = blist[position].image
-//        holder.itemView.findViewById(R.id.name) = blist[position].Title
-//        holder.itemView.price.text = "Price: " + blist[position].price.toString()
-//        holder.itemView.color.text = "Color: " + blist[position].color
         holder.name.text = blist[position].Title
         holder.price.text = "Price: " + blist[position].price.toString()
         holder.color.text = "Color: " + blist[position].color
 
         val otherPath: Uri =
-            Uri.parse("android.resource://com.lwemzy.shoppingapp/drawable/" + imgStr)
+            Uri.parse("android.resource://com.lwemzy.shoppingapp/drawable/$imgStr")
 
         holder.image.setImageURI(otherPath)
     }
